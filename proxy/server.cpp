@@ -401,30 +401,6 @@ void server::send(bool client, variantlist_t& list, int32_t netid, int32_t delay
     enet_host_flush(host);
     free(game_packet);
 }
-void SendPacketRaw(int a1, void* packetData, size_t packetDataSize, void* a4, ENetPeer* peer, int packetFlag)
-{
-    ENetPacket* p;
-
-    if (peer) // check if we have it setup
-    {
-        if (a1 == 4 && *((BYTE*)packetData + 12) & 8)
-        {
-            p = enet_packet_create(0, packetDataSize + *((DWORD*)packetData + 13) + 5, packetFlag);
-            int four = 4;
-            memcpy(p->data, &four, 4);
-            memcpy((char*)p->data + 4, packetData, packetDataSize);
-            memcpy((char*)p->data + packetDataSize + 4, a4, *((DWORD*)packetData + 13));
-            enet_peer_send(peer, 0, p);
-        }
-        else
-        {
-            p = enet_packet_create(0, packetDataSize + 5, packetFlag);
-            memcpy(p->data, &a1, 4);
-            memcpy((char*)p->data + 4, packetData, packetDataSize);
-            enet_peer_send(peer, 0, p);
-        }
-    }
-}
 //bool client: true - sends to growtopia client    false - sends to gt server
 void server::send(bool client, std::string text, int32_t type) {
     auto peer = client ? m_gt_peer : m_server_peer;
