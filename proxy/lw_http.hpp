@@ -1,6 +1,5 @@
 #pragma once
 
-#include <Windows.h>
 #include <winhttp.h>
 #include <string>
 #include <vector>
