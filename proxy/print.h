@@ -1,5 +1,4 @@
 #pragma once
-#include <windows.h>
 #include <cstdio>
 
 enum console_color
