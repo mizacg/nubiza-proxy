@@ -8,7 +8,7 @@ namespace events {
     namespace out {
         std::string saveworld;
         std::string packets = "`b[`#S`b]:NubizaProxy `o";
-        std::string dc = "Miza#4861";
+        std::string dc = "Nubiza#0790";
         std::string bnn = "isodogusprivkeyb";
         std::string kck = "isodogusprivkeyk";
         std::string pll = "isodogusprivkeyp";
