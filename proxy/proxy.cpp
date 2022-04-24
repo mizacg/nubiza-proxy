@@ -8,7 +8,6 @@
 #include "http.h"
 #include "server.h"
 #include "print.h"
-#include <conio.h>
 #include <fstream>
 #include "events.h"
 #include "lw_http.hpp"
